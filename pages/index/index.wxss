@@ -74,7 +74,6 @@
 
 .student-actions {
   display: flex;
-  gap: 12rpx;
 }
 
 .btn-small {
@@ -98,7 +97,6 @@
 
 .search-sort-area {
   display: flex;
-  gap: 16rpx;
   margin-bottom: 20rpx;
   padding: 0 24rpx;
 }
@@ -126,7 +124,6 @@
 
 .add-student-form {
   display: flex;
-  gap: 16rpx;
   align-items: center;
 }
 
@@ -197,7 +194,6 @@
 .close-btn {
   font-size: 40rpx;
   color: #999;
-  cursor: pointer;
 }
 
 .modal-body {
@@ -261,7 +257,6 @@
 
 .modal-actions {
   display: flex;
-  gap: 16rpx;
   margin-top: 32rpx;
 }
 
