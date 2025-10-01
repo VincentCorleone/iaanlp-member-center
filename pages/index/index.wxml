@@ -1,0 +1,78 @@
+<!--index.wxml-->
+<navigation-bar title="学分统计系统" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <!-- 学员列表 -->
+    <view class="section">
+      <view class="section-title">学员列表</view>
+      
+      <!-- 搜索和排序区域 -->
+      <view class="search-sort-area">
+        <input class="search-input" placeholder="搜索学员姓名" value="{{searchKeyword}}" bindinput="onSearchKeywordInput" />
+        <button class="sort-btn" bindtap="toggleSortOrder">{{sortOrder === 'desc' ? '学分从低到高' : '学分从高到低'}}</button>
+      </view>
+      
+      <view class="student-list">
+        <view wx:for="{{students}}" wx:key="id" class="student-item" bindtap="viewStudentDetail" data-student="{{item}}">
+          <view class="student-info">
+            <text class="student-name">{{item.name}}</text>
+            <text class="student-points">{{item.points}} 学分</text>
+          </view>
+          <view class="student-actions">
+            <button class="btn-small" bindtap="addPoints" data-id="{{item.id}}" size="mini">加分</button>
+            <button class="btn-small" bindtap="deductPoints" data-id="{{item.id}}" size="mini">扣分</button>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 添加学员 -->
+    <view class="section">
+      <view class="section-title">添加新学员</view>
+      <view class="add-student-form">
+        <input class="input" placeholder="学员姓名" value="{{newStudentName}}" bindinput="onNewStudentNameInput" />
+        <button class="btn-primary" bindtap="addStudent">添加学员</button>
+      </view>
+    </view>
+
+    <!-- 积分明细弹窗 -->
+    <view class="modal" wx:if="{{showDetailModal}}">
+      <view class="modal-content">
+        <view class="modal-header">
+          <text class="modal-title">{{selectedStudent.name}} - 积分明细</text>
+          <text class="close-btn" bindtap="closeDetailModal">×</text>
+        </view>
+        <view class="modal-body">
+          <view class="points-summary">
+            <text class="total-points">总学分: {{selectedStudent.points}}</text>
+          </view>
+          <view class="points-history">
+            <view wx:for="{{selectedStudent.pointsHistory}}" wx:key="timestamp" class="history-item">
+              <text class="history-time">{{item.time}}</text>
+              <text class="history-desc">{{item.description}}</text>
+              <text class="history-points {{item.points > 0 ? 'positive' : 'negative'}}">{{item.points > 0 ? '+' : ''}}{{item.points}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 积分操作弹窗 -->
+    <view class="modal" wx:if="{{showPointsModal}}">
+      <view class="modal-content">
+        <view class="modal-header">
+          <text class="modal-title">{{pointsModalTitle}}</text>
+          <text class="close-btn" bindtap="closePointsModal">×</text>
+        </view>
+        <view class="modal-body">
+          <input class="input" placeholder="积分数量" type="number" value="{{pointsAmount}}" bindinput="onPointsAmountInput" />
+          <input class="input" placeholder="备注说明" value="{{pointsDescription}}" bindinput="onPointsDescriptionInput" />
+          <view class="modal-actions">
+            <button class="btn-secondary" bindtap="closePointsModal">取消</button>
+            <button class="btn-primary" bindtap="confirmPointsOperation">确认</button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

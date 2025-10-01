@@ -1,0 +1,80 @@
+<!--pages/profile/profile.wxml-->
+<view class="container">
+  <!-- 用户信息区域 -->
+  <view class="user-info-section">
+    <view class="avatar">
+      <image src="/images/profile.png" mode="aspectFill"></image>
+    </view>
+    <view class="user-info">
+      <text class="user-name">管理员</text>
+      <text class="user-role">培训机构管理员</text>
+    </view>
+  </view>
+
+  <!-- 统计信息区域 -->
+  <view class="stats-section">
+    <view class="stat-item">
+      <text class="stat-number">{{totalStudents}}</text>
+      <text class="stat-label">总学员数</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-number">{{totalPoints}}</text>
+      <text class="stat-label">总学分数</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-number">{{todayOperations}}</text>
+      <text class="stat-label">今日操作</text>
+    </view>
+  </view>
+
+  <!-- 功能菜单区域 -->
+  <view class="menu-section">
+    <view class="menu-title">系统功能</view>
+    <view class="menu-item" bindtap="goToStudentList">
+      <view class="menu-icon">
+        <image src="/images/students.png" mode="aspectFit"></image>
+      </view>
+      <text class="menu-text">学员管理</text>
+      <view class="menu-arrow">
+        <image src="/images/arrow-right.png" mode="aspectFit"></image>
+      </view>
+    </view>
+    <view class="menu-item" bindtap="viewOperationLog">
+      <view class="menu-icon">
+        <image src="/images/log.png" mode="aspectFit"></image>
+      </view>
+      <text class="menu-text">操作日志</text>
+      <view class="menu-arrow">
+        <image src="/images/arrow-right.png" mode="aspectFit"></image>
+      </view>
+    </view>
+    <view class="menu-item" bindtap="importData">
+      <view class="menu-icon">
+        <image src="/images/export.png" mode="aspectFit"></image>
+      </view>
+      <text class="menu-text">数据导入</text>
+      <view class="menu-arrow">
+        <image src="/images/arrow-right.png" mode="aspectFit"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 设置区域 -->
+  <view class="menu-section">
+    <view class="menu-title">系统设置</view>
+    <view class="menu-item" bindtap="about">
+      <view class="menu-icon">
+        <image src="/images/about.png" mode="aspectFit"></image>
+      </view>
+      <text class="menu-text">关于我们</text>
+      <view class="menu-arrow">
+        <image src="/images/arrow-right.png" mode="aspectFit"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 版本信息 -->
+  <view class="version-info">
+    <text>学分统计系统 v1.0.0</text>
+  </view>
+</view>

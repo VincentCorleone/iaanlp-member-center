@@ -1,0 +1,112 @@
+<!--member.wxml-->
+<navigation-bar title="会员中心" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+
+<!-- 头部会员信息区域 -->
+<view class="header-section">
+  <view class="user-info-container">
+    <view class="avatar-container">
+      <image src="/images/profile.png" class="avatar" mode="aspectFill"></image>
+    </view>
+    <view class="user-info">
+      <text class="user-name">微信用户</text>
+      <text class="user-level">Lv1 知音之交</text>
+    </view>
+    <view class="complete-profile-btn">
+      <text>完善信息可获得奖励 ></text>
+    </view>
+  </view>
+  
+  <!-- 积分、优惠券、勋章统计 -->
+  <view class="stats-row">
+    <view class="stat-item">
+      <text class="stat-number">{{points}}</text>
+      <text class="stat-label">积分</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-number">{{coupons}}</text>
+      <text class="stat-label">优惠券</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-number">{{badges}}</text>
+      <text class="stat-label">勋章</text>
+    </view>
+  </view>
+  
+  <!-- 等级进度条 -->
+  <view class="level-progress">
+    <text class="progress-text">再获得{{requiredPoints}}经验值可升级为Lv{{nextLevel}}</text>
+    <view class="progress-bar-container">
+      <view class="progress-bar" style="width: {{progressPercentage}}%;"></view>
+    </view>
+    <text class="progress-number">{{currentPoints}}/{{requiredPoints}}</text>
+  </view>
+</view>
+
+<!-- 会员权益区域 -->
+<view class="benefits-section">
+  <text class="section-title">会员尊享权益</text>
+  <view class="view-benefits-btn">
+    <text>查看你的会员权益 ></text>
+  </view>
+</view>
+
+<!-- 功能菜单区域 -->
+<view class="menu-section">
+  <text class="section-title">我的功能</text>
+  <view class="menu-grid">
+    <view class="menu-item" bindtap="navigateToAddress">
+      <view class="menu-icon">
+        <image src="/images/address.png" mode="aspectFit"></image>
+      </view>
+      <text class="menu-text">地址管理</text>
+    </view>
+    <view class="menu-item" bindtap="navigateToInvoice">
+      <view class="menu-icon">
+        <image src="/images/invoice.png" mode="aspectFit"></image>
+      </view>
+      <text class="menu-text">发票管理</text>
+    </view>
+    <view class="menu-item" bindtap="navigateToCertification">
+      <view class="menu-icon">
+        <image src="/images/certification.png" mode="aspectFit"></image>
+      </view>
+      <text class="menu-text">学生认证</text>
+    </view>
+    <view class="menu-item" bindtap="navigateToGiftCards">
+      <view class="menu-icon">
+        <image src="/images/giftcard.png" mode="aspectFit"></image>
+      </view>
+      <text class="menu-text">我的礼品卡</text>
+    </view>
+    <view class="menu-item" bindtap="navigateToPetId">
+      <view class="menu-icon">
+        <image src="/images/petid.png" mode="aspectFit"></image>
+      </view>
+      <text class="menu-text">宠物身份证</text>
+    </view>
+    <view class="menu-item" bindtap="navigateToCustomerService">
+      <view class="menu-icon">
+        <image src="/images/service.png" mode="aspectFit"></image>
+      </view>
+      <text class="menu-text">在线客服</text>
+    </view>
+    <view class="menu-item" bindtap="navigateToFranchise">
+      <view class="menu-icon">
+        <image src="/images/franchise.png" mode="aspectFit"></image>
+      </view>
+      <text class="menu-text">加盟咨询</text>
+    </view>
+    <view class="menu-item" bindtap="navigateToAgreements">
+      <view class="menu-icon">
+        <image src="/images/agreement.png" mode="aspectFit"></image>
+      </view>
+      <text class="menu-text">协议及政策</text>
+    </view>
+  </view>
+</view>
+
+<!-- 底部版权信息 -->
+<view class="footer-section">
+  <text class="copyright">学分统计系统 v1.0.0</text>
+  <text class="powered-by">企迈提供技术支持</text>
+</view>
